@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-khmer: "Kantumruy Pro", sans-serif;
+  
+  --color-master-green: #059669;
+  --color-strict-purple: #6366f1;
+  --color-accent-blue: #2563eb;
+  --color-accent-orange-light: #fb923c;
+  --color-accent-orange-dark: #ea580c;
+}
+
+:root {
+    --primary-orange: #ea580c;
+    --sidebar-navy: #0b1221;
+    --blueprint-bg: #111827;
+    --card-border: #1f2937;
+    
+    /* New Theme Colors */
+    --master-green: #059669;
+    --strict-purple: #6366f1;
+    --accent-blue: #2563eb;
+    --accent-orange-light: #fb923c;
+    --accent-orange-dark: #ea580c;
+}
+
+body { 
+    font-family: var(--font-sans); 
+    background-color: #0b1221;
+    color: #f8fafc;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.khmer-font { font-family: var(--font-khmer); }
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.blueprint-card {
+    background: rgba(31, 41, 55, 0.5);
+    border: 1px solid #374151;
+    transition: all 0.2s ease;
+}
+.blueprint-card:hover {
+    border-color: #ea580c;
+    background: rgba(31, 41, 55, 0.8);
+}
+.blueprint-card.active {
+    border-color: #ea580c;
+    background: rgba(234, 88, 12, 0.1);
+}
+
+.floating-tools {
+    background: rgba(17, 24, 39, 0.9);
+    backdrop-blur: blur(10px);
+    border: 1px solid #374151;
+}
+
+@media print {
+    .no-print { display: none !important; }
+    @page {
+        size: A4;
+        margin: 0.7in !important;
+    }
+    body { background: white !important; color: black !important; }
+    .worksheet-paper {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes progress {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 1.5s linear infinite;
+}
+
+.animate-progress {
+  animation: progress 2s ease-in-out infinite;
+}
